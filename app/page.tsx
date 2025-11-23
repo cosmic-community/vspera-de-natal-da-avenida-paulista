@@ -2,6 +2,7 @@ import { getMomentos, getEventos } from '@/lib/cosmic'
 import MomentoCard from '@/components/MomentoCard'
 import EventoCard from '@/components/EventoCard'
 import Hero from '@/components/Hero'
+import type { MomentoPaulista, EventoNatal } from '@/types'
 
 export const revalidate = 60
 
@@ -26,7 +27,7 @@ export default async function Home() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {momentos.map((momento) => (
+            {momentos.map((momento: MomentoPaulista) => (
               <MomentoCard key={momento.id} momento={momento} />
             ))}
           </div>
@@ -46,7 +47,7 @@ export default async function Home() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {eventos.map((evento) => (
+            {eventos.map((evento: EventoNatal) => (
               <EventoCard key={evento.id} evento={evento} />
             ))}
           </div>

@@ -63,12 +63,14 @@ export default function Gallery({ images }: GalleryProps) {
             ←
           </button>
           
-          <img
-            src={`${images[selectedImage].imgix_url}?w=1600&h=1200&fit=max&auto=format,compress`}
-            alt={`Gallery image ${selectedImage + 1}`}
-            className="max-w-full max-h-full object-contain"
-            onClick={(e) => e.stopPropagation()}
-          />
+          {selectedImage !== null && images[selectedImage] && (
+            <img
+              src={`${images[selectedImage].imgix_url}?w=1600&h=1200&fit=max&auto=format,compress`}
+              alt={`Gallery image ${selectedImage + 1}`}
+              className="max-w-full max-h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          )}
           
           <button
             className="absolute right-4 text-white text-4xl hover:text-christmas-gold transition-colors"

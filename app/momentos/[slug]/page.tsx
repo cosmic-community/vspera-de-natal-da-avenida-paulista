@@ -4,12 +4,13 @@ import { notFound } from 'next/navigation'
 import ReactMarkdown from 'react-markdown'
 import Gallery from '@/components/Gallery'
 import Link from 'next/link'
+import type { MomentoPaulista } from '@/types'
 
 export const revalidate = 60
 
 export async function generateStaticParams() {
   const momentos = await getMomentos()
-  return momentos.map((momento) => ({
+  return momentos.map((momento: MomentoPaulista) => ({
     slug: momento.slug,
   }))
 }
